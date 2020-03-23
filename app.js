@@ -11,6 +11,11 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+// For the serever to access our css it need be stored in the static file directory which is passed in as public below.
+// Note that this time around, the linkk to the styles sheet must be in the .ejs file
+app.use(express.static('public'));
+
+
 let clientNewToDoS = ["Buy Food", "Learn Hebrew", "Learn d3.js", "Learn Web Development", "Shopping","Pray", "Read the Bible"];
 
 app.get("/", function(req, res) {
