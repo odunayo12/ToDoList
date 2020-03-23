@@ -49,7 +49,7 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res) {
   clientNewToDo = req.body.newToDo;
-
+// mind the "S" one is a sinle object populatin the aaray
   clientNewToDoS.push(clientNewToDo);
 
   res.redirect("/");
