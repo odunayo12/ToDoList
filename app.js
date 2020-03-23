@@ -11,18 +11,18 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-var clientNewToDoS = ["Buy Food", "Learn Hebrew", "Learn d3.js", "Learn Web Development", "Shopping","Pray", "Read the Bible"];
+let clientNewToDoS = ["Buy Food", "Learn Hebrew", "Learn d3.js", "Learn Web Development", "Shopping","Pray", "Read the Bible"];
 
 app.get("/", function(req, res) {
   // res.send("Hello!");
-  var today = new Date();
-  var currentDay = today.getDay();
-  var day = "";
+  let today = new Date();
+  let currentDay = today.getDay();
+  let day = "";
   // create a template to render our Weekday
-  // var dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  // let dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   // day = dayArray[currentDay];
 
-  // this only renders Weekday or Weekend using the variables declared above before the dayArray.
+  // this only renders Weekday or Weekend using the letiables declared above before the dayArray.
   // if (currentDay === 6 || currentDay === 0) {
   //   day = "Weekend";
   // } else {
@@ -31,7 +31,7 @@ app.get("/", function(req, res) {
 
   //Further alternative
   // Check: https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
-  var options = {
+  let options = {
     weekday: 'long',
     day: 'numeric',
     month: 'long'
