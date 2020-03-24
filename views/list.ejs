@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
 
-<head>
-  <meta charset="utf-8">
-  <title>Todo List</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
+<%- include('header'); -%>
   <div class="box" id="heading">
-    <h1>It is <%= whichDay %>!</h1>
+    <h1><%= listTitle %></h1>
   </div>
 
   <div class="box">
@@ -27,12 +19,9 @@
 
     <form name="whatToDo" class="item" action="/" method="post">
       <input type="text" name="newToDo" placeholder="Enter activity" autocomplete="off">
-      <button type="submit" name="button">+</button>
+    <!-- we embed client enetered values into our button using the listTitle -->
+      <button type="submit" name="list" value= <%= listTitle %> >+</button>
     </form>
   </div>
 
-
-
-</body>
-
-</html>
+<%- include('footer'); -%>
