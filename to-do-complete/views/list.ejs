@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+  </head>
+  <body>
+    <h1>It is <%= whichDay %>!</h1>
+
+    <ul>
+      <!-- To add a new list item from the client side -->
+      <!-- <li><%= whatIsNew %></li> -->
+      <%for (let i = 0; i < whatIsNew.length; i++) { %>
+         <li> <%= whatIsNew[i] %> </li>
+      <%} %>
+    </ul>
+
+    <form name="whatToDo"class="" action="/" method="post">
+      <input type="text" name="newToDo" placeholder="Enter activity">
+      <button type="submit" name="button">Add</button>
+    </form>
+  </body>
+</html>
