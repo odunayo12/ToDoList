@@ -1,4 +1,13 @@
 <%- include('partials/header'); -%>
-    <h1>Home</h1>
-    <p><%= homeIntro %></p>
+<h1>Home</h1>
+<p><%= homeIntro %></p>
+
+<%for (var i = 0; i < postByClient.length; i++) {%>
+   <% console.log(postByClient[i].postTitle); %>
+<%} %>
+
+<div class="">
+
+</div>
+
 <%- include('partials/footer'); -%>

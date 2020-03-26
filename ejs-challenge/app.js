@@ -20,13 +20,22 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
+let postByClient = [];
+
 // home route
 app.get("/", (req, res) => {
   // res.send("<h1>Home</h1>")
+  // let parsed = JSON.parse(JSON.stringify(postByClient));
+  // let postByClient = postByClient[0].postTitle;
+  // let postBody = parsed[0].postBody;
 
   res.render("home", {
-    homeIntro: homeStartingContent
+    homeIntro: homeStartingContent,
+    postByClient: postByClient
+    // postByClientToHomeBody: postByClient[0].postTitle
   });
+
+  // console.log(parsed[0].postTitle);
 });
 
 // about route
@@ -49,12 +58,15 @@ app.get("/compose", (req, res) => {
 });
 
 app.post("/compose", (req, res) => {
+  // the following object holds the post content in
   const composedObject = {
     postTitle: req.body.titleToPublish,
     postBody: req.body.bodyToPublish
   }
-  console.log(composedObject);
-  // res.render('/compose', );
+  postByClient.push(composedObject);
+  // console.log(composedObject);
+  console.log(postByClient);
+  res.redirect('/');
 })
 
 
