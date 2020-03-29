@@ -1,23 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Todo List</title>
-  </head>
-  <body>
-    <h1>It is <%= whichDay %>!</h1>
 
-    <ul>
-      <!-- To add a new list item from the client side -->
-      <!-- <li><%= whatIsNew %></li> -->
-      <%for (let i = 0; i < whatIsNew.length; i++) { %>
-         <li> <%= whatIsNew[i] %> </li>
-      <%} %>
-    </ul>
+<%- include('header'); -%>
+  <div class="box" id="heading">
+    <h1><%= listTitle %></h1>
+  </div>
 
-    <form name="whatToDo"class="" action="/" method="post">
-      <input type="text" name="newToDo" placeholder="Enter activity">
-      <button type="submit" name="button">Add</button>
+  <div class="box">
+
+    <!-- To add a new list item from the client side -->
+    <!-- <li><%= whatIsNew %></li> -->
+    <%for (let i = 0; i < whatIsNew.length; i++) { %>
+    <div class="item">
+      <input type="checkbox">
+      <p> <%= whatIsNew[i] %> </p>
+    </div>
+
+
+    <%} %>
+
+    <form name="whatToDo" class="item" action="/" method="post">
+      <input type="text" name="newToDo" placeholder="Enter activity" autocomplete="off">
+    <!-- we embed client enetered values into our button using the listTitle -->
+      <button type="submit" name="list" value= <%= listTitle %> >+</button>
     </form>
-  </body>
-</html>
+  </div>
+
+<%- include('footer'); -%>
