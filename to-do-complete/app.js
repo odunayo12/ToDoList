@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const date = require(__dirname + '/date.js');
 
 const app = express();
@@ -17,6 +18,21 @@ app.use(bodyParser.urlencoded({
 // Note that this time around, the linkk to the styles sheet must be in the .ejs file
 app.use(express.static('public'));
 
+mongoose.connect('mongodb://localhost:27017/todolistDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+
+const itemSchema = new mongoose.Schema({
+  name: String
+})
+
+const Item = mongoose.model('Item', itemSchema)
+
+const item =new Item ({
+  name: String
+})
 
 const clientNewToDoS = ["Buy Food", "Learn Hebrew", "Learn d3.js", "Learn Web Development", "Shopping", "Pray", "Read the Bible"];
 const workItems = [];
