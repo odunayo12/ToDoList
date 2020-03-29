@@ -1,0 +1,21 @@
+<%- include('partials/header'); -%>
+<h1>Home</h1>
+<p><%= homeIntro %></p>
+
+
+<!-- %-->
+
+<div class="">
+  <!--content is a random name given to the function by me -->
+  <% postByClientToHome.forEach((content) => { %>
+  <% let bodyLength = 100 %>
+  <% let endingMarks = "..." %>
+  <h1><%= content.postTitle %></h1>
+  <p>
+    <%= (content.postBody).substring(0, bodyLength - endingMarks.length)+"... " %>
+    <a href="/posts/<%=content.postTitle%>">Read More</a>
+  </p>
+  <%}); %>
+</div>
+
+<%- include('partials/footer'); -%>
